@@ -47,7 +47,7 @@ export default function ProjectsPage() {
                 alt="AppLovin Logo"
                 width={300}
                 height={100}
-                className="object-contain h-auto rounded-xl"
+                className="object-contain h-auto"
               />
             </div>
           </div>

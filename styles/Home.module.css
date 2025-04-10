@@ -1,0 +1,199 @@
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+  color: #0070f3; /* Next.js Blue or your brand color */
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroText h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.heroText h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.heroText p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.ctaContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.ctaBtn, .ctaBtnOutline {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.ctaBtn {
+  background: #0070f3;
+  color: #fff;
+  border: none;
+}
+
+.ctaBtn:hover {
+  background: #005fc1;
+}
+
+.ctaBtnOutline {
+  background: transparent;
+  color: #0070f3;
+  border: 2px solid #0070f3;
+}
+
+.ctaBtnOutline:hover {
+  background: #0070f3;
+  color: #fff;
+}
+
+.heroImage {
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+/* PROJECTS SECTION */
+.projectsSection {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.projectsSection h2 {
+  margin-bottom: 2rem;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.projectCard {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.projectCard h3 {
+  margin: 1rem 0 0.5rem;
+}
+
+.viewMore {
+  margin-top: 2rem;
+}
+
+.viewMoreBtn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #0070f3;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.viewMoreBtn:hover {
+  background: #005fc1;
+}
+
+/* ABOUT SECTION */
+.aboutSection {
+  padding: 3rem 2rem;
+  background: #fafafa;
+  text-align: center;
+}
+
+.aboutSection h2 {
+  margin-bottom: 2rem;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.profilePic {
+  border-radius: 50%;
+}
+
+.aboutContent p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+  background: #eee;
+  align-items: center;
+}
+
+.footer .socialLinks a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.footer .socialLinks a:hover {
+  color: #0070f3;
+}

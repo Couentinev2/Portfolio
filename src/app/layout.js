@@ -31,14 +31,7 @@ export default function RootLayout({ children }) {
             <a href="/projects" className="hover:text-blue-600">Projects</a>
             <a href="/about" className="hover:text-blue-600">About</a>
         {/*    <a href="/contact" className="hover:text-blue-600">Contact</a>*/}
-            <a
-              href="https://www.youtube.com/@kimchicroissant"
-              className="hover:text-blue-600"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Vlog
-            </a>
+
           </nav>
         </header>
 

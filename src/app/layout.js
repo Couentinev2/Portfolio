@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {/* NAVBAR */}
         <header className="flex items-center justify-between px-6 py-4 bg-white shadow">
+        <Analytics/>
         <div>
             <Image
               src="/images/couentine.png" 

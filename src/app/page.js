@@ -23,8 +23,8 @@ export default function Home() {
               View Projects
             </Link>
             <Link
-              href="/contact"
-              className="px-6 py-3 font-semibold text-white transition border border-white rounded-full hover:bg-white hover:text-indigo-600"
+          href="mailto:contact@quentinguillaume.com"
+          className="px-6 py-3 font-semibold text-white transition border border-white rounded-full hover:bg-white hover:text-indigo-600"
             >
               Contact
             </Link>

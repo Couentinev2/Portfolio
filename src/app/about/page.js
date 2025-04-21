@@ -7,14 +7,24 @@ export default function AboutPage() {
     <main className="w-full min-h-screen text-gray-800 bg-gray-50">
       {/* HERO SECTION */}
       <section className="px-6 py-24 text-center text-white bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="mb-2 text-sm tracking-widest text-blue-100 uppercase">About Me</h2>
-          <h1 className="mb-4 text-4xl font-extrabold sm:text-5xl">Hello, I’m Quentin Guillaume</h1>
-          <p className="text-lg text-blue-100 sm:text-xl">
-            Get to know my professional background and what drives my passion for building impactful digital products.
-          </p>
-        </div>
-      </section>
+  <div className="max-w-3xl mx-auto">
+    <h2 className="mb-2 text-sm tracking-widest text-blue-100 uppercase">About Me</h2>
+    <h1 className="mb-4 text-4xl font-extrabold sm:text-5xl">Hello, I’m Quentin Guillaume</h1>
+    <p className="text-lg text-blue-100 sm:text-xl">
+      Get to know my professional background and what drives my passion for building impactful digital products.
+    </p>
+    <p className="mt-4">
+      <a
+        href="https://www.linkedin.com/in/quentinguillaume"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block text-blue-100 underline hover:text-white"
+      >
+        Connect with me on LinkedIn
+      </a>
+    </p>
+  </div>
+</section>
 
       {/* PROFILE SECTION */}
       <section className="px-6 -mt-[3em]">

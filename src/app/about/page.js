@@ -4,102 +4,167 @@ import Link from 'next/link';
 
 export default function AboutPage() {
   return (
-    <main className="w-full min-h-screen text-gray-800 bg-gray-50">
-      {/* HERO SECTION */}
-      <section className="px-6 py-24 text-center text-white bg-gradient-to-br from-blue-600 to-purple-600">
-  <div className="max-w-3xl mx-auto">
-    <h2 className="mb-2 text-sm tracking-widest text-blue-100 uppercase">About Me</h2>
-    <h1 className="mb-4 text-4xl font-extrabold sm:text-5xl">Hello, I’m Quentin Guillaume</h1>
-    <p className="text-lg text-blue-100 sm:text-xl">
-      Get to know my professional background and what drives my passion for building impactful digital products.
-    </p>
-    <p className="mt-4">
-      <a
-        href="https://www.linkedin.com/in/quentinguillaume"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block text-blue-100 underline hover:text-white"
-      >
-        Connect with me on LinkedIn
-      </a>
-    </p>
-  </div>
-</section>
+    <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30">
+      
+      {/* BACKGROUND GRID PATTERN */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      </div>
 
-      {/* PROFILE SECTION */}
-      <section className="px-6 -mt-[3em]">
-        <div className="flex flex-col max-w-5xl gap-10 p-8 mx-auto bg-white shadow-xl rounded-3xl md:p-12 md:flex-row">
-          <div className="flex justify-center md:justify-start">
-            <Image
-              src="/images/quentin.jpg"
-              alt="Profile picture of Quentin Guillaume"
-              width={160}
-              height={160}
-              className="object-cover rounded-full"
-            />
-          </div>
-          <div className="flex-1 space-y-4 text-gray-700">
-            <p>
-              Hello! I’m <strong>Quentin Guillaume</strong>, a Creative Developer currently contributing to the growth of{' '}
-              <a
-                href="https://www.applovin.com/"
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
+        
+        {/* NAV BACK */}
+        <div className="mb-12">
+            <Link href="/" className="inline-flex items-center text-sm text-slate-400 hover:text-indigo-400 transition-colors">
+                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Home
+            </Link>
+        </div>
+
+        {/* HEADER SECTION */}
+        <section className="text-center mb-16">
+          <h2 className="mb-4 text-sm font-semibold tracking-widest text-indigo-400 uppercase">About Me</h2>
+          <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Hello, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Quentin Guillaume</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-lg text-slate-400 leading-relaxed">
+            Get to know my professional background and what drives my passion for building impactful digital products.
+          </p>
+          <div className="mt-6">
+            <a
+                href="https://www.linkedin.com/in/quentinguillaume"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-blue-600 underline hover:text-blue-800"
-              >
-                AppLovin
-              </a>
-              . I specialize in developing modern web experiences that blend high-quality design with robust functionality, always prioritizing user engagement and performance.
-            </p>
-            <p>
-              In my role at AppLovin, I serve as the main developer, overseeing the technical aspects of our website and creating specialized tools for the marketing team. By focusing on performance, reliability, and efficient workflows, I enable our marketing initiatives to run smoothly and effectively. Although I don’t interface directly with clients, my work behind the scenes is critical to driving the company’s overall success and ensuring our internal teams have the platforms they need to excel.
-            </p>
-            <p>
-              With a strong background in <strong>JavaScript</strong>, <strong>React</strong>, <strong>Next.js</strong>, and modern CSS frameworks like <strong>Tailwind CSS</strong>, I’m passionate about creating solutions that are both innovative and intuitive. I thrive in dynamic environments, value continuous learning, and enjoy contributing to collaborative projects that impact users on a global scale.
-            </p>
+                className="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors border-b border-indigo-500/50 hover:border-indigo-400 pb-0.5"
+            >
+                <svg className="w-4 h-4 mr-2 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                Connect on LinkedIn
+            </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SKILLS & INTERESTS */}
-      <section className="px-6 mt-16">
-        <div className="grid max-w-5xl grid-cols-1 gap-8 mx-auto md:grid-cols-2">
-          <div className="p-6 bg-gray-100 shadow-sm rounded-2xl md:p-8">
-            <h2 className="mb-4 text-xl font-semibold">Core Skills & Expertise</h2>
-            <ul className="space-y-2 text-gray-700 list-disc list-inside">
-              <li><strong>Front-End Development:</strong> React, Next.js, Tailwind CSS, Responsive UI</li>
-              <li><strong>Back-End / APIs:</strong> Node.js, Express, RESTful services, basic AWS integration</li>
-              <li><strong>Project Collaboration:</strong> Agile/Scrum, Git version control, code reviews, cross-functional teamwork</li>
-              <li><strong>Performance & Optimization:</strong> Front-end profiling, accessibility best practices</li>
-            </ul>
-          </div>
+        {/* MAIN PROFILE CARD */}
+        <section className="relative p-8 md:p-12 mb-12 border border-slate-800 rounded-3xl bg-slate-900/50 backdrop-blur-sm shadow-2xl shadow-black/20">
+            {/* Glow Effect */}
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="p-6 bg-gray-100 shadow-sm rounded-2xl md:p-8">
-            <h2 className="mb-4 text-xl font-semibold">Personal Values & Interests</h2>
-            <p className="text-gray-700">
-              Outside of my day-to-day work, I’m passionate about <strong>gaming</strong>, discovering new <strong>skills</strong>, and <strong>traveling</strong> to explore different cultures and environments. I believe this curiosity drives me to continuously learn and adapt—both in my personal life and professionally. Whether it’s mastering new technologies or planning my next adventure, I thrive on the excitement of discovery and the pursuit of fresh perspectives.
-            </p>
-          </div>
-        </div>
-      </section>
+            <div className="flex flex-col md:flex-row gap-10 items-start">
+                {/* Image Column */}
+                <div className="flex-shrink-0 mx-auto md:mx-0 relative">
+                    <div className="absolute inset-0 bg-indigo-500 blur-2xl opacity-20 rounded-full"></div>
+                    <Image
+                        src="/images/quentin.jpg"
+                        alt="Profile picture of Quentin Guillaume"
+                        width={200}
+                        height={200}
+                        className="relative z-10 object-cover rounded-full border-4 border-slate-800 shadow-xl"
+                    />
+                </div>
 
-      {/* CTA */}
-      <section className="mt-16 pb-[4em] text-center">
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/projects"
-            className="inline-block px-6 py-3 font-semibold text-white transition bg-blue-600 rounded-full hover:bg-blue-700"
-          >
-            View My Projects
-          </Link>
-          <a
-            href="mailto:contact@quentinguillaume.com"
-            className="inline-block px-6 py-3 font-semibold text-blue-600 transition border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white"
-          >
-            Get In Touch
-          </a>
+                {/* Content Column */}
+                <div className="flex-1 space-y-6 text-slate-300 leading-relaxed">
+                    <p>
+                        Hello! I’m <strong className="text-white">Quentin Guillaume</strong>, a Creative Developer currently contributing to the growth of{' '}
+                        <a href="https://www.applovin.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 font-medium hover:underline decoration-indigo-500/30">
+                            AppLovin
+                        </a>. I specialize in developing modern web experiences that blend high-quality design with robust functionality.
+                    </p>
+                    
+                    {/* REVISED SECTION: WORDPRESS & COLLABORATION FOCUS */}
+                    <p>
+                        In my role at AppLovin, I serve as the primary developer for our corporate web presence, with a deep focus on the <strong className="text-indigo-300">WordPress ecosystem</strong>. I collaborate closely with the <strong>marketing, content, and web design teams</strong> to implement pixel-perfect layouts and manage dynamic content updates.
+                    </p>
+                    <p>
+                        I act as the bridge between creative vision and technical implementation. By maintaining a strong design sensibility, I ensure that the assets provided by our designers are translated into responsive, high-performance web pages that support the company's marketing initiatives.
+                    </p>
+                    {/* END REVISION */}
+
+                    <p>
+                        With a strong background in <span className="text-teal-300 font-medium">WordPress Development</span>, <span className="text-teal-300 font-medium">React</span>, <span className="text-teal-300 font-medium">Next.js</span>, and <span className="text-teal-300 font-medium">Tailwind CSS</span>, I’m passionate about creating solutions that are both innovative and intuitive.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        {/* SKILLS & INTERESTS GRID */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            
+            {/* Skills Column */}
+            <div className="p-8 border border-slate-800 rounded-2xl bg-slate-900/30 hover:bg-slate-900/50 transition-colors">
+                <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h2 className="text-xl font-bold text-white">Core Expertise</h2>
+                </div>
+                
+                <div className="space-y-6">
+                    <div>
+                        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Front-End & CMS</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {/* REORDERED: WordPress First */}
+                            {['WordPress', 'React', 'Next.js', 'Tailwind CSS', 'SEO', 'PHP'].map((skill) => (
+                                <span key={skill} className="px-3 py-1 text-sm font-medium text-indigo-200 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Back-End & Systems</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {['Node.js', 'Supabase', 'RESTful APIs', 'Git', 'MySQL'].map((skill) => (
+                                <span key={skill} className="px-3 py-1 text-sm font-medium text-slate-300 bg-slate-800 border border-slate-700 rounded-full">
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Interests Column */}
+            <div className="p-8 border border-slate-800 rounded-2xl bg-slate-900/30 hover:bg-slate-900/50 transition-colors">
+                <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2 bg-pink-500/10 rounded-lg text-pink-400">
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    </div>
+                    <h2 className="text-xl font-bold text-white">Values & Interests</h2>
+                </div>
+                
+                <p className="text-slate-400 leading-relaxed mb-6">
+                    Outside of my day-to-day work, I’m passionate about <strong>gaming</strong>, discovering new skills, and <strong>traveling</strong> to explore different cultures and environments.
+                </p>
+                <p className="text-slate-400 leading-relaxed">
+                     I believe this curiosity drives me to continuously learn and adapt both in my personal life and professionally. Whether it’s mastering new technologies or planning my next adventure, I thrive on the excitement of discovery.
+                </p>
+            </div>
+
         </div>
-      </section>
+
+        {/* CTA SECTION */}
+        <section className="mt-20 mb-12 text-center">
+            <h3 className="text-2xl font-bold text-white mb-8">Ready to work together?</h3>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link
+                    href="/projects"
+                    className="px-8 py-3 font-semibold text-white transition-all transform bg-indigo-600 rounded-full hover:bg-indigo-700 hover:scale-105 shadow-lg shadow-indigo-500/25"
+                >
+                    View My Projects
+                </Link>
+                <a
+                    href="mailto:contact@quentinguillaume.com"
+                    className="px-8 py-3 font-semibold text-slate-300 transition-colors border border-slate-700 rounded-full hover:bg-slate-800 hover:text-white"
+                >
+                    Get In Touch
+                </a>
+            </div>
+        </section>
+
+      </div>
     </main>
   );
 }

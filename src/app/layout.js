@@ -1,5 +1,7 @@
 // src/app/layout.js
 import './globals.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import { Analytics } from "@vercel/analytics/react"
@@ -16,37 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {/* NAVBAR */}
-        <header className="flex items-center justify-between px-6 py-4 bg-white shadow">
-        <Analytics/>
-        <div>
-            <Image
-              src="/images/couentine.png" 
-              alt="My Logo"
-              width={50}   
-              height={50} 
-            />
-          </div>
-          <nav className="space-x-4 text-black">
-            <a href="/" className="hover:text-blue-600">Home</a>
-            <a href="/projects" className="hover:text-blue-600">Projects</a>
-            <a href="/about" className="hover:text-blue-600">About</a>
-        {/*    <a href="/contact" className="hover:text-blue-600">Contact</a>*/}
-
-          </nav>
-        </header>
-
-        {/* MAIN CONTENT */}
+      <body className={`pt-[60px] ${inter.className}`}>
+        <Header />
         {children}
-
-        {/* FOOTER */}
-        <footer className="py-8 text-center bg-gray-100">
-          <p className="text-gray-600">
-            © {new Date().getFullYear()} Quentin Guillaume. All rights reserved.
-          </p>
-        </footer>
+        <Footer />
       </body>
-    </html>
-  );
+    </html>);
 }

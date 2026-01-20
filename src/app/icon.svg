@@ -1,0 +1,14 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="60" fill="#0f172a"/> {/* Slate-950 background */}
+  <path 
+    d="M128 56C88.2355 56 56 88.2355 56 128C56 167.765 88.2355 200 128 200C167.765 200 200 167.765 200 128C200 88.2355 167.765 56 128 56ZM128 176C101.49 176 80 154.51 80 128C80 101.49 101.49 80 128 80C154.51 80 176 101.49 176 128C176 154.51 154.51 176 128 176Z" 
+    fill="url(#paint0_linear)"
+  />
+  <rect x="140" y="160" width="60" height="24" rx="4" transform="rotate(45 140 160)" fill="#a855f7"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="56" y1="56" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/> {/* Indigo-500 */}
+      <stop offset="1" stop-color="#a855f7"/> {/* Purple-500 */}
+    </linearGradient>
+  </defs>
+</svg>

@@ -5,13 +5,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 // ANIMATION VARIANTS
-// Keeping these outside the component prevents re-creation on every render
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
+    transition: { duration: 0.6, ease: "easeOut" } 
   }
 };
 
@@ -20,32 +19,29 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Delay between each child animation
-      delayChildren: 0.3,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     }
   }
 };
 
 const hoverCard = {
   hover: { 
-    y: -10, // Lift up
-    transition: { duration: 0.3 } 
+    y: -5,
+    transition: { duration: 0.3, ease: "easeInOut" } 
   }
 };
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 overflow-hidden">
+    <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 overflow-hidden font-sans ">
       
-      {/* BACKGROUND GRID PATTERN (Static background is fine, let's just animate opacity on load) */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="fixed inset-0 z-0 pointer-events-none"
-      >
+      {/* BACKGROUND ELEMENTS */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-      </motion.div>
+      </div>
 
       {/* HERO SECTION */}
       <motion.section 
@@ -54,13 +50,19 @@ export default function Home() {
         animate="visible"
         className="relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-6 text-center"
       >
-        {/* Availability Badge */}
-        <motion.div variants={fadeInUp} className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm font-medium">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-          </span>
-          Available for new projects
+        {/* Location & Availability Badge */}
+        <motion.div variants={fadeInUp} className="mb-8 flex items-center gap-3">
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-300 text-xs font-medium tracking-wide">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Available for work
+            </div>
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700/50 bg-slate-800/30 text-slate-400 text-xs font-medium">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                San Francisco, CA
+            </div>
         </motion.div>
 
         <motion.h1 variants={fadeInUp} className="max-w-4xl mx-auto mb-6 text-5xl font-bold tracking-tight sm:text-7xl">
@@ -71,7 +73,8 @@ export default function Home() {
         </motion.h1>
         
         <motion.p variants={fadeInUp} className="max-w-2xl mx-auto mb-10 text-lg text-slate-400 sm:text-xl leading-relaxed">
-          I build thoughtful digital experiences that merge technical precision with creative design.
+          I build high-performance web applications and digital experiences. <br className="hidden sm:block"/>
+          Focusing on <span className="text-slate-200">Next.js</span>, <span className="text-slate-200">TypeScript</span>, and <span className="text-slate-200">User Growth</span>.
         </motion.p>
 
         <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
@@ -80,7 +83,7 @@ export default function Home() {
               href="/projects"
               className="px-8 py-4 font-semibold text-white transition-all bg-indigo-600 rounded-full hover:bg-indigo-700 shadow-[0_0_20px_-5px_rgba(79,70,229,0.5)] block"
             >
-              View Projects
+              View Selected Work
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -95,116 +98,140 @@ export default function Home() {
       </motion.section>
 
       {/* FEATURED PROJECTS */}
-      <section className="relative z-10 max-w-6xl px-6 py-24 mx-auto">
+      <section className="relative z-10 max-w-7xl px-6 py-24 mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex items-end justify-between mb-16"
+          className="flex items-end justify-between mb-16 border-b border-slate-800 pb-8"
         >
           <div>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">Selected Work</h2>
-            <p className="mt-2 text-slate-400">Recent projects and experiments.</p>
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">Featured Projects</h2>
+            <p className="mt-2 text-slate-400">Engineering, Design, and Growth.</p>
           </div>
-          <Link 
-            href="/projects" 
-            className="hidden text-indigo-400 hover:text-indigo-300 hover:underline sm:block"
-          >
+          <Link href="/projects" className="hidden text-indigo-400 hover:text-indigo-300 hover:underline sm:block">
             View all &rarr;
           </Link>
         </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-2">
+        {/* PROJECT GRID - Using CSS Grid for responsive layout */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           
-          {/* Project 1 */}
+          {/* Project 1: AppLovin */}
           <motion.div 
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
             whileHover="hover"
             variants={hoverCard}
-            className="group relative flex flex-col overflow-hidden border border-slate-800 rounded-2xl bg-slate-900/50"
+            className="group flex flex-col bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-colors"
           >
-            <div className="relative overflow-hidden aspect-video">
+            <div className="relative aspect-[16/10] overflow-hidden">
               <Image
                 src="/images/Generic_Applovin.jpg"
                 alt="AppLovin Project"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
             </div>
             
-            <div className="flex flex-col flex-1 p-6 sm:p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 text-xs font-medium text-teal-300 rounded-full bg-teal-400/10">Web Development</span>
-                <span className="px-3 py-1 text-xs font-medium text-indigo-300 rounded-full bg-indigo-400/10">CMS Architecture</span>
-              </div>
-              
-              <h3 className="mb-2 text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                AppLovin Websites
-              </h3>
-              <p className="flex-1 mb-6 text-slate-400 leading-relaxed">
-                Designed and developed the entire web ecosystem. Built reusable components and custom fields empowering the marketing team to manage content efficiently.
+            <div className="p-6 flex flex-col flex-1">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">AppLovin Marketing Engine</h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                Engineered the core marketing websites for a major ad-tech platform. Built a custom component library that reduced the marketing team's content update time by 40%.
               </p>
               
-              <a
-                href="https://www.applovin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-indigo-400"
-              >
-                Visit Website 
-                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-slate-300 bg-slate-800 rounded">PHP</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-slate-300 bg-slate-800 rounded">JavaScript</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-slate-300 bg-slate-800 rounded">WordPress API</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Project 2 */}
+          {/* Project 2: JobScroller */}
           <motion.div 
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             whileHover="hover"
             variants={hoverCard}
-            className="group relative flex flex-col overflow-hidden border border-slate-800 rounded-2xl bg-slate-900/50"
+            className="group flex flex-col bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-colors"
           >
-            <div className="relative overflow-hidden aspect-video">
+            <div className="relative aspect-[16/10] overflow-hidden">
+               {/* Note: Ensure this image path matches your public folder structure */}
               <Image
                 src="/images/jobscroller-preview.png"
-                alt="JobScroller Project"
+                alt="JobScroller SaaS"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
             </div>
             
-            <div className="flex flex-col flex-1 p-6 sm:p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 text-xs font-medium text-pink-300 rounded-full bg-pink-400/10">SaaS</span>
-                <span className="px-3 py-1 text-xs font-medium text-indigo-300 rounded-full bg-indigo-400/10">Automation</span>
-              </div>
-              
-              <h3 className="mb-2 text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                JobScroller
-              </h3>
-              <p className="flex-1 mb-6 text-slate-400 leading-relaxed">
-                A personalized job discovery tool that curates tech listings. Features auto-extraction of role details and application tracking to organize the hunt.
+            <div className="p-6 flex flex-col flex-1">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">JobScroller SaaS</h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                A personalized job discovery platform. Features automated role extraction, application tracking, and a custom dashboard to organize the job hunt without the noise.
               </p>
               
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-indigo-200 bg-indigo-900/40 rounded border border-indigo-500/30">Next.js 14</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-indigo-200 bg-indigo-900/40 rounded border border-indigo-500/30">Supabase</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-indigo-200 bg-indigo-900/40 rounded border border-indigo-500/30">TypeScript</span>
+              </div>
+              
+            </div>
+          </motion.div>
+
+          {/* Project 3: Kimchi & Croissant (Brand & E-commerce) */}
+
+ <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            whileHover="hover"
+            variants={hoverCard}
+            className="group flex flex-col bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-pink-500/50 transition-colors"
+          >
+            {/* VISUAL HEADER */}
+            <div className="relative aspect-[16/10] overflow-hidden bg-slate-800 group-hover:bg-slate-700 transition-colors flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 to-pink-900/40" />
+              <div className="relative z-10 text-center p-4">
+                 <h4 className="text-2xl font-bold text-white">Kimchi & Croissant</h4>
+                 <span className="text-xs font-medium text-pink-200 uppercase tracking-widest mt-1 block">Brand & E-commerce</span>
+              </div>
+            </div>
+            
+            {/* CONTENT */}
+            <div className="p-6 flex flex-col flex-1">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                Brand Platform & Shop
+              </h3>
+              <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                Currently architecting the custom web storefront for a growing media brand (6k+ organic followers). Integrating Shopify APIs with Next.js for a seamless D2C merchandise launch.
+              </p>
+              
+              {/* TECH BADGES */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Next.js</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Shopify API</span>
+                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Analytics</span>
+              </div>
+
+              {/* THE LINK - Crucial for UX */}
               <a
-                href="https://www.jobscroller.net/"
+                href="https://www.instagram.com/kimchi.croissant" // Replace with your actual handle
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-white transition-colors hover:text-indigo-400"
+                className="inline-flex items-center text-sm font-semibold text-pink-300 transition-colors hover:text-white mt-auto"
               >
-                View Project
-                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                Visit Brand (Instagram)
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -221,37 +248,36 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="relative py-24 mt-12 overflow-hidden">
-        {/* Background glow effect */}
+      <section className="relative py-24 mt-12 overflow-hidden border-t border-slate-800/50">
         <motion.div 
           animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2] 
+            scale: [1, 1.1, 1],
+            opacity: [0.1, 0.2, 0.1] 
           }}
           transition={{ 
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[100px] pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none"
         ></motion.div>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="relative z-10 px-6 text-center"
         >
-          <h2 className="mb-6 text-4xl font-bold text-white sm:text-5xl">Let’s build something <br/> exceptional.</h2>
+          <h2 className="mb-6 text-4xl font-bold text-white sm:text-5xl">Ready to collaborate?</h2>
           <p className="max-w-xl mx-auto mb-10 text-lg text-slate-400">
-            Whether you have a specific idea or just want to say hi, my inbox is always open.
+            Currently based in San Francisco and open to new opportunities. Let's build something exceptional together.
           </p>
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="mailto:contact@quentinguillaume.com"
-            className="inline-block px-8 py-4 font-semibold text-indigo-950 transition bg-white rounded-full hover:bg-indigo-50"
+            className="inline-block px-8 py-4 font-semibold text-indigo-950 transition bg-white rounded-full hover:bg-indigo-50 shadow-lg shadow-indigo-500/20"
           >
             Get In Touch
           </motion.a>

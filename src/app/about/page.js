@@ -72,14 +72,12 @@ export default function AboutPage() {
                         </a>. I specialize in developing modern web experiences that blend high-quality design with robust functionality.
                     </p>
                     
-                    {/* REVISED SECTION: WORDPRESS & COLLABORATION FOCUS */}
                     <p>
                         In my role at AppLovin, I serve as the primary developer for our corporate web presence, with a deep focus on the <strong className="text-indigo-300">WordPress ecosystem</strong>. I collaborate closely with the <strong>marketing, content, and web design teams</strong> to implement pixel-perfect layouts and manage dynamic content updates.
                     </p>
                     <p>
                         I act as the bridge between creative vision and technical implementation. By maintaining a strong design sensibility, I ensure that the assets provided by our designers are translated into responsive, high-performance web pages that support the company's marketing initiatives.
                     </p>
-                    {/* END REVISION */}
 
                     <p>
                         With a strong background in <span className="text-teal-300 font-medium">WordPress Development</span>, <span className="text-teal-300 font-medium">React</span>, <span className="text-teal-300 font-medium">Next.js</span>, and <span className="text-teal-300 font-medium">Tailwind CSS</span>, I’m passionate about creating solutions that are both innovative and intuitive.
@@ -104,7 +102,6 @@ export default function AboutPage() {
                     <div>
                         <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">Front-End & CMS</h3>
                         <div className="flex flex-wrap gap-2">
-                            {/* REORDERED: WordPress First */}
                             {['WordPress', 'React', 'Next.js', 'Tailwind CSS', 'SEO', 'PHP'].map((skill) => (
                                 <span key={skill} className="px-3 py-1 text-sm font-medium text-indigo-200 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
                                     {skill}
@@ -126,8 +123,8 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Interests Column */}
-            <div className="p-8 border border-slate-800 rounded-2xl bg-slate-900/30 hover:bg-slate-900/50 transition-colors">
+            {/* Interests Column - MODIFIED */}
+            <div className="p-8 border border-slate-800 rounded-2xl bg-slate-900/30 hover:bg-slate-900/50 transition-colors flex flex-col">
                 <div className="flex items-center gap-3 mb-6">
                     <div className="p-2 bg-pink-500/10 rounded-lg text-pink-400">
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
@@ -138,8 +135,23 @@ export default function AboutPage() {
                 <p className="text-slate-400 leading-relaxed mb-6">
                     Outside of my day-to-day work, I’m passionate about <strong>gaming</strong>, discovering new skills, and <strong>traveling</strong> to explore different cultures and environments.
                 </p>
-                <p className="text-slate-400 leading-relaxed">
-                     I believe this curiosity drives me to continuously learn and adapt both in my personal life and professionally. Whether it’s mastering new technologies or planning my next adventure, I thrive on the excitement of discovery.
+
+                {/* NEW SECTION: SIDE VENTURES */}
+                <div className="mt-2 mb-6 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50">
+                    <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                        Side Ventures
+                    </h3>
+                    <p className="text-sm text-slate-300 mb-3">
+                        I co-run <strong className="text-pink-300">Kimchi & Croissant</strong>, a cross-cultural media brand sharing Korean-French experiences. Growing our community to over 7,000 followers has given me deep insights into social algorithms and digital storytelling.
+                    </p>
+                    <a href="https://www.instagram.com/kimchi.croissant" target="_blank" className="text-xs font-semibold text-pink-400 hover:text-pink-300 flex items-center gap-1">
+                        Visit Instagram &rarr;
+                    </a>
+                </div>
+
+                <p className="text-slate-400 leading-relaxed mt-auto">
+                      I believe this curiosity drives me to continuously learn and adapt both in my personal life and professionally.
                 </p>
             </div>
 

@@ -115,8 +115,9 @@ export default function Home() {
           </Link>
         </motion.div>
 
-        {/* PROJECT GRID - Using CSS Grid for responsive layout */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* PROJECT GRID */}
+        {/* Changed lg:grid-cols-3 to lg:grid-cols-2 since we only have 2 items now, making them centered/balanced */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           
           {/* Project 1: AppLovin */}
           <motion.div 
@@ -162,7 +163,6 @@ export default function Home() {
             className="group flex flex-col bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-colors"
           >
             <div className="relative aspect-[16/10] overflow-hidden">
-               {/* Note: Ensure this image path matches your public folder structure */}
               <Image
                 src="/images/jobscroller-preview.png"
                 alt="JobScroller SaaS"
@@ -186,58 +186,6 @@ export default function Home() {
               
             </div>
           </motion.div>
-
-          {/* Project 3: Kimchi & Croissant (Brand & E-commerce) */}
-
- <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            whileHover="hover"
-            variants={hoverCard}
-            className="group flex flex-col bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-pink-500/50 transition-colors"
-          >
-            {/* VISUAL HEADER */}
-            <div className="relative aspect-[16/10] overflow-hidden bg-slate-800 group-hover:bg-slate-700 transition-colors flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 to-pink-900/40" />
-              <div className="relative z-10 text-center p-4">
-                 <h4 className="text-2xl font-bold text-white">Kimchi & Croissant</h4>
-                 <span className="text-xs font-medium text-pink-200 uppercase tracking-widest mt-1 block">Brand & E-commerce</span>
-              </div>
-            </div>
-            
-            {/* CONTENT */}
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
-                Brand Platform & Shop
-              </h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                Currently architecting the custom web storefront for a growing media brand (6k+ organic followers). Integrating Shopify APIs with Next.js for a seamless D2C merchandise launch.
-              </p>
-              
-              {/* TECH BADGES */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Next.js</span>
-                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Shopify API</span>
-                <span className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold text-pink-200 bg-pink-900/30 rounded border border-pink-500/30">Analytics</span>
-              </div>
-
-              {/* THE LINK - Crucial for UX */}
-              <a
-                href="https://www.instagram.com/kimchi.croissant" // Replace with your actual handle
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-semibold text-pink-300 transition-colors hover:text-white mt-auto"
-              >
-                Visit Brand (Instagram)
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </motion.div>
-
         </div>
 
         <div className="mt-12 text-center sm:hidden">

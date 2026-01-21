@@ -34,7 +34,7 @@ const hoverCard = {
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 overflow-hidden font-sans ">
+    <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 overflow-hidden font-sans leading-relaxed">
       
       {/* BACKGROUND ELEMENTS */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -65,9 +65,9 @@ export default function Home() {
             </div>
         </motion.div>
 
-        <motion.h1 variants={fadeInUp} className="max-w-4xl mx-auto mb-6 text-5xl font-bold tracking-tight sm:text-7xl">
+        <motion.h1 variants={fadeInUp} className="max-w-4xl mx-auto mb-6 text-5xl font-bold tracking-tight sm:text-7xl leading-relaxed">
           Quentin Guillaume
-          <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 leading-tight">
+          <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 leading-relaxed">
             Creative Engineer.
           </span>
         </motion.h1>
@@ -98,7 +98,7 @@ export default function Home() {
       </motion.section>
 
       {/* FEATURED PROJECTS */}
-      <section className="relative z-10 max-w-7xl px-6 py-24 mx-auto">
+      <section className="relative z-10 max-w-7xl px-6 py-24 mx-auto leading-relaxed">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

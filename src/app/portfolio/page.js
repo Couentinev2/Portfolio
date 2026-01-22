@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion'; // 1. Import Framer Motion
 
 export default function ProjectsPage() {
   const projects = [
@@ -34,9 +35,24 @@ export default function ProjectsPage() {
       tags: ['OpenAI API', 'React', 'UX Design'],
       description: `I designed and implemented key features, including an AI-powered trip advisor using the OpenAI API, and built a responsive interface with robust backend integration to make trip planning easier.`,
       link: '/travel',
-      isInternal: true, // Used to determine if we open in new tab or not
+      isInternal: true, 
     },
   ];
+
+  // 2. Define the animation variant for reuse
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
+    }
+  };
 
   return (
     <main className="w-full min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30">
@@ -58,18 +74,29 @@ export default function ProjectsPage() {
             </Link>
         </div>
 
-        {/* HEADER */}
-        <section className="text-center mb-20">
+        {/* HEADER - Added a simple fade in here too */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-20"
+        >
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Works</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-slate-400">
             A collection of professional roles, side projects, and technical experiments.
           </p>
-        </section>
+        </motion.section>
 
         {/* FEATURED ROLE: APPLOVIN */}
-        <section className="mb-24">
+        <motion.section 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-24"
+        >
             <div className="relative overflow-hidden border border-slate-800 rounded-3xl bg-slate-900/50 backdrop-blur-sm">
                 <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 
@@ -99,7 +126,6 @@ export default function ProjectsPage() {
                     
                     {/* Logo Area */}
                     <div className="flex items-center justify-center p-12 bg-white/5 order-1 md:order-2 h-full min-h-[300px]">
-                         {/* Added a white glow behind the logo in case it's dark text on transparent */}
                         <div className="relative p-8 bg-white rounded-2xl shadow-xl shadow-indigo-500/10">
                             <Image
                                 src="/images/events_sponsors_trim_1017.png"
@@ -112,7 +138,7 @@ export default function ProjectsPage() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
 
         {/* PROJECTS GRID */}
         <section>
@@ -122,9 +148,13 @@ export default function ProjectsPage() {
           
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
             {projects.map((proj, i) => (
-              <article
+              <motion.article
                 key={i}
-                className="group relative flex flex-col p-6 sm:p-8 transition-all duration-300 bg-slate-900/40 border border-slate-800 rounded-2xl hover:bg-slate-900/80 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }} // Triggers when 50px of element is in view
+                variants={cardVariants}
+                className="group relative flex flex-col p-6 sm:p-8 transition-colors duration-300 bg-slate-900/40 border border-slate-800 rounded-2xl hover:bg-slate-900/80 hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/10"
               >
                 <div className="flex flex-wrap gap-2 mb-4">
                     {proj.tags.map((tag, t) => (
@@ -167,7 +197,7 @@ export default function ProjectsPage() {
                         </a>
                     )}
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
 

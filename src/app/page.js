@@ -110,7 +110,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-white sm:text-4xl">Featured Projects</h2>
             <p className="mt-2 text-slate-400">Engineering, Design, and Growth.</p>
           </div>
-          <Link href="/projects" className="hidden text-indigo-400 hover:text-indigo-300 hover:underline sm:block">
+          <Link href="/portfolio" className="hidden text-indigo-400 hover:text-indigo-300 hover:underline sm:block">
             View all &rarr;
           </Link>
         </motion.div>
@@ -189,7 +189,7 @@ export default function Home() {
         </div>
 
         <div className="mt-12 text-center sm:hidden">
-            <Link href="/projects" className="block w-full px-6 py-3 font-semibold text-center text-slate-300 border border-slate-800 rounded-lg hover:bg-slate-800">
+            <Link href="/portfolio" className="block w-full px-6 py-3 font-semibold text-center text-slate-300 border border-slate-800 rounded-lg hover:bg-slate-800">
               View All Projects
             </Link>
         </div>
